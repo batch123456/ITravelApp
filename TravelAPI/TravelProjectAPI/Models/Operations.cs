@@ -69,6 +69,32 @@ namespace TravelProjectAPI.Models
         }
 
 
+        public List<TravelDetails> GetDetails()
+        {
+            return context.TravelDetails.ToList();
+        }
+        public TravelDetails GetDetails(int id)
+        {
+            return context.TravelDetails.ToList().Find(x => x.TravelId == id);
+        }
+        public void PostDetails(TravelDetails details)
+        {
+            context.TravelDetails.Add(details);
+            context.SaveChanges();
+        }
+        public void PutDetails(int id, TravelDetails details)
+        {
+            var found = context.TravelDetails.ToList().Find(x => x.TravelId == id);
+            context.TravelDetails.Remove(found);
+            context.TravelDetails.Add(details);
+            context.SaveChanges();
+        }
+        public void DeleteDetails(int id)
+        {
+            var found = context.TravelDetails.ToList().Find(x => x.TravelId == id);
+            context.TravelDetails.Remove(found);
+            context.SaveChanges();
+        }
 
 
     }
