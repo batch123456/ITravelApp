@@ -18,7 +18,7 @@ namespace TravelAPI.Controllers
         }
 
         // GET api/<controller>/5
-        public Admin Get(string id)
+        public Admin Get(int id)
         {
             return op.GetAdmin(id);
         }
@@ -30,13 +30,13 @@ namespace TravelAPI.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(string id, [FromBody] Admin value)
+        public void Put(int id, [FromBody] Admin value)
         {
             op.PutAdmin(id, value);
         }
 
         // DELETE api/<controller>/5
-        public void Delete(string id)
+        public void Delete(int id)
         {
             op.DeleteAdmin(id);
         }

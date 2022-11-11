@@ -9,9 +9,13 @@ namespace TravelAPI.Models
 {
     public class Admin
     {
+       
+        [Key]
+       
+      public  int AdminId { get; set; }  
+
         [Required]
         [EmailAddress]
-        [Key]
         public string AdminEmail { get; set; }
 
         [Required]

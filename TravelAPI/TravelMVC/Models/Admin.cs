@@ -9,9 +9,13 @@ namespace TravelMVC.Models
 {
     public class Admin
     {
+
+       [Key]
+
+        public int AdminId { get; set; }
+
         [Required]
         [EmailAddress]
-        [Key]
         public string AdminEmail { get; set; }
 
         [Required]
@@ -20,5 +24,6 @@ namespace TravelMVC.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+        
     }
 }

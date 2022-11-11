@@ -20,9 +20,9 @@ namespace TravelAPI.Controllers
         }
 
         // GET api/<controller>/5
-        public User Get(string name)
+        public User Get(int id)
         {
-            return op.GetUser(name);
+            return op.GetUser(id);
         }
 
         // POST api/<controller>
@@ -32,15 +32,15 @@ namespace TravelAPI.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(string name, [FromBody] User value)
+        public void Put(int id, [FromBody] User value)
         {
-            op.PutUser(name, value);
+            op.PutUser(id, value);
         }
 
         // DELETE api/<controller>/5
-        public void Delete(string name)
+        public void Delete(int id)
         {
-            op.DeleteUser(name);
+            op.DeleteUser(id);
         }
     }
 }

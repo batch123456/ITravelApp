@@ -13,7 +13,7 @@ namespace TravelMVC.Controllers
     public class UserController : Controller
     {
         // GET: UserMVC
-        Uri baseAddress = new Uri("https://localhost:44396/api");
+        Uri baseAddress = new Uri("https://localhost:44376/api");
         HttpClient client;
         public UserController()
         {
@@ -86,41 +86,43 @@ namespace TravelMVC.Controllers
             return View();
         }
 
-        /*   public ActionResult Edit(string email)
-         {
-             User l = new User();
-             HttpResponseMessage response = client.GetAsync(client.BaseAddress + "/user/" + email).Result;
-             if (response.IsSuccessStatusCode)
-             {
-                 String Data = response.Content.ReadAsStringAsync().Result;
-                 l = JsonConvert.DeserializeObject<User>(Data);
-             }
-             return View(l);
-         }
-         [HttpPost]
-         public ActionResult Edit(User model)
-         {
-             string data = JsonConvert.SerializeObject(model);
-             StringContent Content = new StringContent(data, Encoding.UTF8, "application/json");
-             HttpResponseMessage response = client.PutAsync(baseAddress + "/user/" + model.Email, Content).Result;
-             if (response.IsSuccessStatusCode)
-             {
-                 return RedirectToAction("Index");
-             }
-             return View();
-         }
-         public ActionResult Delete(int id)
-         {
-             User l = new User();
-             HttpResponseMessage response = client.GetAsync(client.BaseAddress + "/user/" + id).Result;
-             if (response.IsSuccessStatusCode)
-             {
-                 String Data = response.Content.ReadAsStringAsync().Result;
-                 l = JsonConvert.DeserializeObject<User>(Data);
-                 }
-             return View(l);
-         }
-         [HttpPost]
+        public ActionResult Edit(int id)
+        {
+            User l = new User();
+            HttpResponseMessage response = client.GetAsync(client.BaseAddress + "/user/" + id).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                String Data = response.Content.ReadAsStringAsync().Result;
+                l = JsonConvert.DeserializeObject<User>(Data);
+            }
+            return View(l);
+        }
+        [HttpPost]
+        public ActionResult Edit(User model)
+        {
+            string data = JsonConvert.SerializeObject(model);
+            StringContent Content = new StringContent(data, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.PutAsync(baseAddress + "/user/" + model.UserId, Content).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+        public ActionResult Delete(int id)
+        {
+            User l = new User();
+            HttpResponseMessage response = client.GetAsync(client.BaseAddress + "/user/" + id).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                String Data = response.Content.ReadAsStringAsync().Result;
+                l = JsonConvert.DeserializeObject<User>(Data);
+
+
+            }
+            return View(l);
+        }
+        /* [HttpPost]
          public ActionResult Delete(User model)
          {
              string data = JsonConvert.SerializeObject(model);

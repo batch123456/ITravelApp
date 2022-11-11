@@ -18,9 +18,8 @@ namespace TravelAPI.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
 
-        public virtual DbSet<Register> Registers { get; set; }
-
-        public virtual DbSet<ForgotPswd> Pswds { get; set; }
+        
+       
 
     }
 }

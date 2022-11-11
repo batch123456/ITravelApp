@@ -13,31 +13,28 @@ namespace TravelAPI.Models
         {
             return context.Admins.ToList();
         }
-        public Admin GetAdmin(string id)
+        public Admin GetAdmin(int id)
         {
-            return context.Admins.ToList().Find(x => x.AdminEmail == id);
+            return context.Admins.ToList().Find(x => x.AdminId == id);
         }
         public void PostAdmin(Admin admin)
         {
             context.Admins.Add(admin);
             context.SaveChanges();
         }
-        public void PutAdmin(string id, Admin admin)
+        public void PutAdmin(int id, Admin admin)
         {
-            var found = context.Admins.ToList().Find(x => x.AdminEmail == id);
+            var found = context.Admins.ToList().Find(x => x.AdminId == id);
             context.Admins.Remove(found);
             context.Admins.Add(admin);
             context.SaveChanges();
         }
-        public void DeleteAdmin(string id)
+        public void DeleteAdmin(int id)
         {
-            var found = context.Admins.ToList().Find(x => x.AdminEmail == id);
+            var found = context.Admins.ToList().Find(x => x.AdminId == id);
             context.Admins.Remove(found);
             context.SaveChanges();
         }
-
-
-
 
 
 
@@ -45,80 +42,33 @@ namespace TravelAPI.Models
         {
             return context.Users.ToList();
         }
-        public User GetUser(string name)
+        public User GetUser(int id)
         {
-            return context.Users.ToList().Find(x => x.Email == name);
+            return context.Users.ToList().Find(x => x.UserId == id);
         }
         public void PostUser(User user)
         {
             context.Users.Add(user);
             context.SaveChanges();
         }
-        public void PutUser(string name, User user)
+        public void PutUser(int id, User user)
         {
-            var found = context.Users.ToList().Find(x => x.Email == name);
+            var found = context.Users.ToList().Find(x => x.UserId == id);
             context.Users.Remove(found);
             context.Users.Add(user);
             context.SaveChanges();
         }
-        public void DeleteUser(string name)
+        public void DeleteUser(int id)
         {
-            var found = context.Users.ToList().Find(x => x.Email == name);
+            var found = context.Users.ToList().Find(x => x.UserId == id);
             context.Users.Remove(found);
             context.SaveChanges();
         }
-        public List<Register> GetRegister()
-        {
-            return context.Registers.ToList();
-        }
-        public Register GetRegister(string mail)
-        {
-            return context.Registers.ToList().Find(x => x.Email == mail);
-        }
-        public void PostRegister(Register register)
-        {
-            context.Registers.Add(register);
-            context.SaveChanges();
-        }
-        public void PutRegister(string mail, Register register)
-        {
-            var found = context.Registers.ToList().Find(x => x.Email == mail);
-            context.Registers.Remove(found);
-            context.Registers.Add(register);
-            context.SaveChanges();
-        }
-        public void DeleteRegister(string mail)
-        {
-            var found = context.Registers.ToList().Find(x => x.Email == mail);
-            context.Registers.Remove(found);
-            context.SaveChanges();
-        }
 
-        public List<ForgotPswd> GetForgotPswd()
-        {
-            return context.Pswds.ToList();
-        }
-        public ForgotPswd GetForgotPswd(string mail)
-        {
-            return context.Pswds.ToList().Find(x => x.Email == mail);
-        }
-        public void PostForgotPswd(ForgotPswd pswd)
-        {
-            context.Pswds.Add(pswd);
-            context.SaveChanges();
-        }
-        public void PutForgotPswd(string mail, ForgotPswd pswd)
-        {
-            var found = context.Pswds.ToList().Find(x => x.Email == mail);
-            context.Pswds.Remove(found);
-            context.Pswds.Add(pswd);
-            context.SaveChanges();
-        }
-        public void DeleteForgotPswd(string mail)
-        {
-            var found = context.Pswds.ToList().Find(x => x.Email == mail);
-            context.Pswds.Remove(found);
-            context.SaveChanges();
+
+
+       
+        
         }/*
         public List<Vaccination> GetVaccination()
         {
@@ -173,4 +123,3 @@ namespace TravelAPI.Models
             context.SaveChanges();
         }*/
     }
-}
